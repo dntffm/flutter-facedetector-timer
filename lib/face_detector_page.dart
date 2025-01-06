@@ -8,7 +8,7 @@ import 'camera_view.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 class FaceDetectorPage extends StatefulWidget {
   const FaceDetectorPage({super.key});
 
@@ -379,7 +379,7 @@ class _FaceDetectorPageState extends State<FaceDetectorPage> {
 
   //Function for reset timer
   void _resetTimer() {
-    // showToast("Eye Detector is stopped");
+    Fluttertoast.showToast(msg: "Eye Detector is stopped");
     setState(() {
       _timer?.cancel();
       _isRunning = false;
@@ -392,7 +392,7 @@ class _FaceDetectorPageState extends State<FaceDetectorPage> {
   void _pauseTimer() {
     _timer?.cancel();
     _isPaused = true;
-    // showPausedNotification();
+    showPausedNotification();
     setState(() {});
   }
 
@@ -400,7 +400,7 @@ class _FaceDetectorPageState extends State<FaceDetectorPage> {
   void _resumeTimer() {
     _startTimer();
     _isPaused = false;
-    // showResumedNotification();
+    showResumedNotification();
     setState(() {});
   }
 
